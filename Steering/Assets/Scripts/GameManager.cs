@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject bigScreenBox;
     public TextMeshProUGUI bigScreenText;
 
-    public GameObject curtain;
+    //public GameObject curtain;
     private bool raiseLower = false;
 
 
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         float time = 0;
         raiseLower = true;
-        Image curtainImg = curtain.GetComponent<Image>();
+        //Image curtainImg = curtain.GetComponent<Image>();
         Color startValue;
         Color endValue;
         if (fadeout) {
@@ -42,11 +42,11 @@ public class GameManager : MonoBehaviour
 
         while (time < duration)
         {
-            curtainImg.color = Color.Lerp(startValue, endValue, time / duration);
+            //curtainImg.color = Color.Lerp(startValue, endValue, time / duration);
             time += Time.deltaTime;
             yield return null;
         }
-        curtainImg.color = endValue;
+        //curtainImg.color = endValue;
         raiseLower = false;
     }
 
