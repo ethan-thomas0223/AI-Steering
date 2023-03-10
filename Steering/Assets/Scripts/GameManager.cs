@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject dialogBox;
     public TextMeshProUGUI dialogText;
+    public GameObject button;
+    public GameObject Button;
 
     public GameObject bigScreenBox;
     public TextMeshProUGUI bigScreenText;
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject canvas;
     public GameObject eventSystem;
+    public GameObject Dlight;
 
     public GameObject mainScreen;
 
@@ -75,17 +78,34 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(ColorLerpFunction(false, 1));
     }
+    public void Credits(){
+        button.SetActive(true);
+        dialogBox.SetActive(true);
+    }
 
+    public void Tutorial(){
+        bigScreenBox.SetActive(true);
+    }
+    public void ClearCanvas(){
+        Button.SetActive(false);
+        button.SetActive(false);
+        dialogBox.SetActive(false);
+        bigScreenBox.SetActive(false);
+    }
 
     public void ChangeScene(string scene) {
         print("check");
+        ClearCanvas();
         StartCoroutine(LoadYourAsyncScene(scene));
     }
     
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
+        dialogBox.SetActive(false);
+        bigScreenBox.SetActive(false);
+        button.SetActive(false);
+        Button.SetActive(true);
     }
 
     // Update is called once per frame
@@ -98,6 +118,8 @@ public class GameManager : MonoBehaviour
         if (Instance == null) {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(canvas);
+            DontDestroyOnLoad(Dlight);
         } else {
             Destroy(gameObject);
         }
