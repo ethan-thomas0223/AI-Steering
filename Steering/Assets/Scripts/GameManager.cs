@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(ColorLerpFunction(false, 1));
     }
+
     public void Credits(){
         button.SetActive(true);
         dialogBox.SetActive(true);
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour
     public void Tutorial(){
         bigScreenBox.SetActive(true);
     }
+
     public void ClearCanvas(){
         Button.SetActive(false);
         button.SetActive(false);
